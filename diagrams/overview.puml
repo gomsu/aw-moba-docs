@@ -48,8 +48,8 @@ Player -> GameClient : Play game session
 GameServer -> GameClient : Game ends
 GameClient -> GameClient : Show game end result\n(victory, defeat)
 Player -> GameClient : Confirm game end result
-GameClient -> GameClient : Exit
 GameClient -> GameSetupClient : Game finished
+GameClient -> GameClient : Exit
 GameSetupClient -> GameSetupClient : Show detailed game stats
 Player -> GameSetupClient : Leave game
 @enduml
