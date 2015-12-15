@@ -1,0 +1,48 @@
+@startuml
+title Overview
+actor Player #white
+participant GameSetupClient #lightblue
+participant GameClient #lightblue
+database LoginServer
+database MatchMakingServer
+database GameServer
+
+Player -> GameSetupClient : Start
+GameSetupClient -> Player : Ask for login
+Player -> GameSetupClient : Input login details
+GameSetupClient -> LoginServer : Try to login with credentials
+LoginServer --> GameSetupClient : Login response
+group login failed
+GameSetupClient -> Player : Show error message
+end group
+GameSetupClient -> LoginServer : Request user data
+LoginServer --> GameSetupClient : User Data
+GameSetupClient -> GameSetupClient : Publish user data to UI\n(Ships, Weapons etc.)
+group
+Player -> GameSetupClient : Play
+GameSetupClient -> Player : Choose game type\n(PvE, PvP etc.)
+Player -> GameSetupClient : Select game type
+GameSetupClient -> Player : Show more detailed game type\noptions (Mission, Map, PvP -type)
+Player -> GameSetupClient : Select detailed options
+GameSetupClient -> MatchMakingServer : Find game
+group matchmaking server connection failure
+MatchMakingServer --> GameSetupClient : Connection failure
+GameSetupClient -> Player : Show critical error
+end group
+MatchMakingServer --> GameSetupClient : Game found
+GameSetupClient -> GameSetupClient : Publish game data to UI
+Player -> GameSetupClient : Accept game
+GameSetupClient -> GameClient : Start with game session data
+GameClient -> GameServer : Join game
+group gameserver connection failure
+GameServer --> GameClient : Connection failure
+GameClient -> GameClient : Retry mechanism
+GameClient -> Player : Show critical error
+end group
+GameServer --> GameClient : Join game response
+Player -> GameClient : Play game session
+GameServer -> GameClient : Game ends
+GameClient -> GameClient : Show game end results
+Player -> GameClient : Confirm game end results
+GameClient -> GameClient : Exit
+@enduml
