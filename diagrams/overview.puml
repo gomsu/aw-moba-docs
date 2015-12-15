@@ -43,9 +43,13 @@ GameClient -> GameClient : Retry mechanism
 GameClient -> Player : Show critical error
 end group
 GameServer --> GameClient : Join game response
+GameServer -> GameClient : Start game
 Player -> GameClient : Play game session
 GameServer -> GameClient : Game ends
-GameClient -> GameClient : Show game end results
-Player -> GameClient : Confirm game end results
+GameClient -> GameClient : Show game end result\n(victory, defeat)
+Player -> GameClient : Confirm game end result
 GameClient -> GameClient : Exit
+GameClient -> GameSetupClient : Game finished
+GameSetupClient -> GameSetupClient : Show detailed game stats
+Player -> GameSetupClient : Leave game
 @enduml
