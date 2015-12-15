@@ -32,6 +32,9 @@ end group
 MatchMakingServer --> GameSetupClient : Game found
 GameSetupClient -> GameSetupClient : Publish game data to UI
 Player -> GameSetupClient : Accept game
+GameSetupClient -> GameSetupClient : Present pre-game selections\n(Ship frame etc.)
+Player -> GameSetupClient : Make pre-game selections.
+Player -> GameSetupClient : Accept selections (ready)
 GameSetupClient -> GameClient : Start with game session data
 GameClient -> GameServer : Join game
 group gameserver connection failure
