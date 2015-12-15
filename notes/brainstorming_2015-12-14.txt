@@ -1,0 +1,54 @@
+2015-12-14
+AW MOBA brainstorming in Finnish
+Pekka, Ville
+
+Vertailtiin Hero Siege, Gauntlet: Slayer Edition
+Muita viitepelejä: League of Legends, Heroes of the Storm, Guild Wars 2
+
+PvP ja PvE
+
+5-10 min PvE-sessio
+
+myös pidempikestoinen 5-man elite mission
+
+ship frame
+- tavoite: ortogonaalisia valintoja buildiin
+- frame määrää slotit, esim. 5 - 7 slottia
+- slotit tyypitetty: offensive, utility, defensive
+- slotteihin laitetaan samantyyppisiä skillejä
+- slottityyppien määrien suhteet riippuu framesta
+- otanko 3 lähiasetta + oma heal vai 3 kaukosnipuasetta + muiden heal
+- saadaan erilaisia buildeja
+- niihin vielä pieniä variaatioita; bazooka vai raketit
+- esim. Viper: 3 asetta, 1 util, 1 heal
+- lisäksi yksi "heroic" itemslotti, tyylitetty: ase, utility, heal
+- heroic-slotti buustaa skilliä, mutta myös hidastaa käyttöä
+
+PvE
+- 1-5 pelaajaa
+- missioneita tai endless
+- PvE:ssä voi buildata yli pelisessioiden
+- levelauksen yhteydessä voi välillä saada lisää slotteja käyttöön framesta
+- levelauksen yhteydessä saa myös perkkejä
+- perkit: lisää hp, lisää armor, yms.
+- level cap esim. 100
+
+PvP
+- PvP:ssä aloitetaan joka matsi lvl 1:ltä; framen valinta kertoo muille kaiken
+- levelauksen mukana slotit aukeaa yksi kerrallaan
+- level cap esim. 20
+
+yleistä
+- fog of war olennainen taktinen osa
+- näkymän hallinta; pieni zoom out tms.
+
+aseskillejä
+- bazooka
+- rockets
+
+utilityskillejä
+- scout drone: hälventää fog of waria hetkeksi
+
+
+MVP PoC (proof of concept)
+- suoraan gameplay
