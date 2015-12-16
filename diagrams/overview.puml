@@ -27,7 +27,7 @@ Player -> GameSetupClient : Select detailed options
 GameSetupClient -> MatchMakingServer : Find game
 group matchmaking server connection failure
 MatchMakingServer --> GameSetupClient : Connection failure
-GameSetupClient -> Player : Show critical error
+GameSetupClient -> Player : Show error
 end group
 MatchMakingServer --> GameSetupClient : Game found
 GameSetupClient -> GameSetupClient : Publish game data to UI
@@ -37,14 +37,31 @@ Player -> GameSetupClient : Make pre-game selections.
 Player -> GameSetupClient : Accept selections (ready)
 GameSetupClient -> GameClient : Start with game session data
 GameClient -> GameServer : Join game
-group gameserver connection failure
-GameServer --> GameClient : Connection failure
-GameClient -> GameClient : Retry mechanism
-GameClient -> Player : Show critical error
-end group
 GameServer --> GameClient : Join game response
 GameServer -> GameClient : Start game
 Player -> GameClient : Play game session
+group gameserver connection failure
+GameServer --> GameClient : Connection failure
+GameClient -> GameClient : Show error
+GameClient -> GameServer : Reconnect
+end group
+group gameclient crash or exit
+GameClient -> GameClient : Crash or exit
+GameSetupClient -> GameSetupClient : Show "rejoin/abandon" game
+group rejoin
+Player -> GameSetupClient : Rejoin
+GameSetupClient -> GameClient : Restart
+GameClient -> GameServer : Rejoin game
+GameServer --> GameClient
+end group
+group abandon game
+Player -> GameSetupClient : Abandon
+GameSetupClient -> MatchMakingServer : Abandon game
+MatchMakingServer -> MatchMakingServer : Free slot for someone else\nif possible.
+MatchMakingServer --> GameSetupClient : Game abandoned
+GameSetupClient -> GameSetupClient : Go back to mainscreen
+end group
+end group
 GameServer -> GameClient : Game ends
 GameClient -> GameClient : Show game end result\n(victory, defeat)
 Player -> GameClient : Confirm game end result
