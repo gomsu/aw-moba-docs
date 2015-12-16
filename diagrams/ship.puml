@@ -1,0 +1,37 @@
+@startuml
+object Ship
+Ship : name
+Ship : speed
+Ship : turnspeed
+Ship : health
+Ship : energy
+Ship : health regen
+Ship : energy regen
+Ship : weight
+Ship : passive ItemSlot (can there be more than 1?)
+Ship : N amount of active ItemSlots (max 3?)
+Ship : powerful ItemSlot
+object ItemSlot
+ItemSlot : type (offensive, defensive, utility, passive)
+ItemSlot : isPowerful (true, false)
+object Item
+note right
+Passive items can work for example as
+stat modifiers. e.g. passive item that
+gives 10 armor and 10 health per level
+or as special modifier like "bullets pierce".
+end note
+Item : type (offensive, defensive, utility, passive)
+Item : name (e.g "Rockets")
+Item : energy consumption
+Item : cooldown
+Item : powerful version
+object PowerfulItem
+Ship --> ItemSlot
+ItemSlot --> Item
+Item --> PowerfulItem
+PowerfulItem : same itemtype than parent
+PowerfulItem : name
+PowerfulItem : energy consumption
+PowerfulItem : cooldown
+@enduml
