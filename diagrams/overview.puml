@@ -67,6 +67,7 @@ end group
 GameServer -> GameClient : Game ends
 GameClient -> GameClient : Show game end result\n(victory, defeat)
 Player -> GameClient : Confirm game end result
+== Leave Game ==
 GameClient -> GameSetupClient : Game finished
 GameClient -> GameClient : Exit
 GameSetupClient -> GameSetupClient : Show detailed game stats
