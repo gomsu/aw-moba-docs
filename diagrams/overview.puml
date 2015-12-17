@@ -6,7 +6,7 @@ participant GameClient #lightblue
 database LoginServer
 database MatchMakingServer
 database GameServer
-
+== Start/Login ==
 Player -> GameSetupClient : Start
 GameSetupClient -> Player : Ask for login
 Player -> GameSetupClient : Input login details
@@ -19,6 +19,7 @@ GameSetupClient -> LoginServer : Request user data
 LoginServer --> GameSetupClient : User Data
 GameSetupClient -> GameSetupClient : Publish user data to UI\n(Ships, Weapons etc.)
 group
+== Find/Join Game ==
 Player -> GameSetupClient : Play
 GameSetupClient -> Player : Choose game type\n(PvE, PvP etc.)
 Player -> GameSetupClient : Select game type
@@ -39,6 +40,7 @@ GameSetupClient -> GameClient : Start with game session data
 GameClient -> GameServer : Join game
 GameServer --> GameClient : Join game response
 GameServer -> GameClient : Start game
+== Play Game ==
 Player -> GameClient : Play game session
 group gameserver connection failure
 GameServer --> GameClient : Connection failure
