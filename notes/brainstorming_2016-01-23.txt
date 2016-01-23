@@ -1,0 +1,28 @@
+2016-01-23
+AW-MOBA brainstorming
+Pekka, Ville
+
+What makes a MOBA?
+- minions
+- end condition: destroy base
+- arena contains mechanics to use
+- team setups are often symmetric
+- in-match hero leveling
+- build setup outside matches
+
+How would AW-MOBA support these MOBA features?
+- knockdown
+- area effect vs selected target
+- weapon goes through wall/blocked by wall
+- mainly local attacks
+- quick cast: activate skill and mouse is a target icon
+
+Flying in AW-GBF is involved; how does this combine with involved MOBA skills?
+- make flying easier?
+- make skills more local like in AW-GBF?
+- maybe it combines just fine :-)
+- game pace could be slower than in AW-GBF; makes it more tactical
+
+How to make teams cohesive?
+- communication tools for players to coordinate teams
+- how far is "dangerous"? by adjusting the gameplay we can mitigate the danger of breaking team formation
